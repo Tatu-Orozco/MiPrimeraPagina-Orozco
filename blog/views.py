@@ -10,21 +10,21 @@ def crear_autor(request):
     if form.is_valid():
         form.save()
         return redirect('index')
-    return render(request, 'autor_form.html', {'form': form})
+    return render(request, 'blog/autor_form.html', {'form': form})
 
 def crear_categoria(request):
     form = CategoriaForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('index')
-    return render(request, 'categoria_form.html', {'form': form})
+    return render(request, 'blog/categoria_form.html', {'form': form})
 
 def crear_post(request):
     form = PostForm(request.POST or None)
     if form.is_valid():
         form.save()
         return redirect('index')
-    return render(request, 'post_form.html', {'form': form})
+    return render(request, 'blog/post_form.html', {'form': form})
 
 def buscar_post(request):
     form = BuscarForm()
@@ -34,4 +34,4 @@ def buscar_post(request):
         if form.is_valid():
             query = form.cleaned_data['query']
             resultados = Post.objects.filter(titulo__icontains=query)
-    return render(request, 'resultados.html', {'form': form, 'resultados': resultados})
+    return render(request, 'blog/resultados.html', {'form': form, 'resultados': resultados})

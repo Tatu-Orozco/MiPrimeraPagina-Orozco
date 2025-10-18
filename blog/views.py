@@ -3,7 +3,7 @@ from .forms import AutorForm, CategoriaForm, PostForm, BuscarForm
 from .models import Post
 
 def index(request):
-    return render(request, 'index.html')
+    return render(request, 'blog/index.html')
 
 def crear_autor(request):
     form = AutorForm(request.POST or None)
